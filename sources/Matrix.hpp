@@ -12,10 +12,13 @@ namespace zich{
         public:
 
             unsigned int getCol() const {return this->column;}
-            Matrix operator+(Matrix const & other) const;                                                        /////V     
+            unsigned int getLine() const {return this->line;}
+            
+            
+            Matrix operator+(Matrix const & other) const;
             Matrix operator+(double num) const;
-            Matrix& operator++();                          ///prefix
-            Matrix operator++(int);                          //postfix
+            Matrix& operator++();
+            Matrix operator++(int);
             Matrix& operator+=(Matrix const & other);
             Matrix& operator+=(double num);
             Matrix operator +();
@@ -23,19 +26,19 @@ namespace zich{
 
             Matrix operator-(Matrix const  & other) const;
             Matrix operator-(double num) const;
-            Matrix& operator-=(Matrix const & other);                                                        /////v
+            Matrix& operator-=(Matrix const & other);
             Matrix& operator-=(double num);
-            Matrix& operator--();                                                                           ///prefix operator
+            Matrix& operator--();
             Matrix operator--(int);
-            Matrix operator -();                                                                           //////V
+            Matrix operator -();
 
 
             Matrix operator*(Matrix const & other) const;
             Matrix operator*(double scalar) const;
-            Matrix operator*=(Matrix const & other);
-            Matrix& operator*=(double scalar);                                                                 //////V
-            friend Matrix operator*=(double scalar, Matrix const & other);                                      //////V
-            friend Matrix operator * (double scalar , Matrix const & other);                                    //////V
+            Matrix& operator*=(Matrix const & other);
+            Matrix& operator*=(double scalar);                        
+            friend Matrix operator*=(double scalar, Matrix const & other);                         
+            friend Matrix operator * (double scalar , Matrix const & other); 
 
             bool operator<=(Matrix const & other) const ;
             bool operator<(Matrix  const & other)const ;
@@ -44,11 +47,12 @@ namespace zich{
             bool operator == (Matrix const & other) const;
             bool operator !=(Matrix const & other) const;
 
-            friend std::ostream & operator << (std::ostream & oStream ,Matrix const &  other);                 ////V
+            friend std::ostream & operator << (std::ostream & oStream ,Matrix const &  other);
             friend std::istream & operator >> (std::istream & iStream , Matrix & other);
 
-            Matrix(std::vector<double> & value,unsigned int line,unsigned int column);                           ////V
+            Matrix(std::vector<double> & value,unsigned int line,unsigned int column);
             Matrix(std::vector<double>  value,int line,int column); 
+
             Matrix();
             ~Matrix(){};
 
